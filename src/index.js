@@ -2,8 +2,13 @@ const express = require('express');
 const morgan = require('morgan');
 const helmet = require('helmet');
 const cors = require('cors');
+const mongoose = require('mongoose');
 
 const middlewares = require('./middlewares');
+
+mongoose.connect('mongodb://localhost/test',{
+    useNewUrlParser: true,
+});
 
 const app = express();
 app.use(morgan('common'));
