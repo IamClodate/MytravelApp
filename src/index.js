@@ -6,11 +6,12 @@ const mongoose = require('mongoose');
 
 const middlewares = require('./middlewares');
 
-mongoose.connect('mongodb://localhost/test',{
+const app = express();
+
+mongoose.connect(process.env.DATABASE_URL,{
     useNewUrlParser: true,
 });
 
-const app = express();
 app.use(morgan('common'));
 app.use(helmet());
 app.use(cors({
